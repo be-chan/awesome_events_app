@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+  web:
+    build: .
+    volumes:
+      - .:/awesome_events_app
+    ports: 
+      - "3000:3000"
+    environment:
+      TZ: Asia/Tokyo
+    depends_on:
+      - db
+  redis:
+    image: redis:7.0
+    ports:
+      - "6379:6379"
+volumes:
+  mysql-data:
