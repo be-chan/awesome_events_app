@@ -11,6 +11,12 @@ module AwesomeEventsApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    # Rails自体のアプリケーションの時刻設定
+    config.time_zone = "Tokyo"
+
+    # ActiveRecordでDBを読み書きする際のタイムゾーンの設定
+    config.active_record.default_timezone = :local
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
