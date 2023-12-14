@@ -241,6 +241,7 @@ DEPENDENCIES
   net-http
   puma (~> 4.1)
   rails (~> 6.0.4)
+  rouge (~> 4.2)
   sass-rails (>= 6)
   selenium-webdriver
   spring
