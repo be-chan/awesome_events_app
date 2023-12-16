@@ -17,6 +17,9 @@ module AwesomeEventsApp
     # ActiveRecordでDBを読み書きする際のタイムゾーンの設定
     config.active_record.default_timezone = :local
 
+    # 日本語にするための設定
+    config.i18n.default_locale = :ja
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

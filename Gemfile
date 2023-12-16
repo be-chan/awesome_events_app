@@ -67,3 +67,6 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 
 # デコードの際に必要
 gem 'base64', '~> 0.2.0'
+
+# 日本語設定で必要
+gem 'rails-i18n', '~> 6.0'

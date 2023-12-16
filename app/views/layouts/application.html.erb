@@ -14,6 +14,9 @@
       <div class="container">
         <%= link_to "AwesomeEvents", welcome_index_path, class: "navbar-brand"%>
         <ul class="navbar-nav">
+          <li class="navbar-item">
+            <%= link_to "イベントを作る", new_event_path, class: "nav-link" %>
+          </li>
           <% if logged_in? %>
             <li class="navbar-item">
               <%= link_to "ログアウト", logout_path, class: "nav-link", method: :delete %>
