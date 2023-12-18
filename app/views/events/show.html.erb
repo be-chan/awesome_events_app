@@ -1,3 +1,4 @@
+<div id="errors"></div>
 <h1 class="mt-3 mb-3"><%= @event.name %></h1>
 <div class="row">
   <div class="col-8">
@@ -28,9 +29,13 @@
     <div class="card mb-2">
       <h5 class="card-header">主催者</h5>
       <div class="card-body">
-        <%= link_to(url_for_github(@event.owner), class: "card-link") do %>
-          <%= image_tag(@event.owner.image_url, width: 50, height: 50) %>
-          <%= "@#{@event.owner.name}"%>
+        <% if @event.owner %>
+          <%= link_to(url_for_github(@event.owner), class: "card-link") do %>
+            <%= image_tag(@event.owner.image_url, width: 50, height: 50) %>
+            <%= "@#{@event.owner.name}"%>
+          <% end %>
+        <% else %>
+          退会したユーザーです
         <% end %>
       </div>
     </div>
@@ -81,11 +86,15 @@
       <ul class="list-group list-group-flush">
         <% @tickets.each do |ticket| %>
           <li class="list-group-item">
-            <%= link_to url_for_github(ticket.user), class: "card-link" do %>
-              <%= image_tag ticket.user.image_url, width: 20, height: 20 %>
-              <%= "@#{ticket.user.name}" %>
+            <% if ticket.user %>
+              <%= link_to url_for_github(ticket.user), class: "card-link" do %>
+                <%= image_tag ticket.user.image_url, width: 20, height: 20 %>
+                <%= "@#{ticket.user.name}" %>
+              <% end %>
+              <%= ticket.comment %>
+            <% else %>
+              退会したユーザーです
             <% end %>
-            <%= ticket.comment %>
           </li>
         <% end %>
       </ul>

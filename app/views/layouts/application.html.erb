@@ -19,6 +19,9 @@
           </li>
           <% if logged_in? %>
             <li class="navbar-item">
+              <%= link_to "退会", retirements_path, class: "nav-link", method: :post, remote: true %>
+            </li>
+            <li class="navbar-item">
               <%= link_to "ログアウト", logout_path, class: "nav-link", method: :delete %>
             </li>
           <% else %>
