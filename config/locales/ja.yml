@@ -9,6 +9,8 @@ ja:
         start_at: 開始時間
         end_at: 終了時間
         content: 内容
+      ticket:
+        comment: コメント
 formats:
   default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
   long: "%Y/%m/%d %H:%M"

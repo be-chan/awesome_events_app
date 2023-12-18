@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # この記述はowner_idを外部キーとして、Eventテーブルをcreated_eventsメソッドという名前で参照しに行くためのものらしい。要するにUserモデルのidとEventモデルのowner_idを結合して参照しているということ。この際にhas_manyというのはUserテーブルのidがEventテーブルのレコードを複数持つことになるので、こういった記述になる。1対多の関係。
   has_many :created_events, class_name: "Event", foreign_key: "owner_id"
+  has_many :tickets
   
   def self.find_or_create_from_auth_hash!(auth_hash)
     provider = auth_hash[:provider]
