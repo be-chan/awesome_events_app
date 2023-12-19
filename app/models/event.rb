@@ -1,6 +1,11 @@
 class Event < ApplicationRecord
+  has_one_attached :image
   has_many :tickets, dependent: :destroy
   belongs_to :owner, class_name: "User"
+
+  attr_accessor :remove_image
+
+  before_save :remove_image_if_user_accept # 保存する前に実行されるメソッド
 
   validates :name, length: { maximum: 50 }, presence: true
   validates :place, length: { maximum: 100 }, presence: true
@@ -24,4 +29,7 @@ class Event < ApplicationRecord
     end
   end
 
+  def remove_image_if_user_accept
+    self.image = nil if ActiveRecord::Type::Boolean.new.cast(remove_image) # remove_imageの0をfalse、1をtrueでcastしている。trueだったら、imageをnilにして、画像を削除。
+  end
 end
